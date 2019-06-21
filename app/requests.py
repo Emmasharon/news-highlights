@@ -1,6 +1,9 @@
 from app import app
 import urllib.request,json
-from .models import Sources,Articles
+from .models import Sources, Articles
+from config import DevConfig
+
+
 
 # Getting api key
 api_key = None
@@ -53,11 +56,7 @@ def process_sources(sources_list):
        urlToImage = sources_item.get('urlToImage')
        publishedAt = sources_item.get('publishedAt')
 
-    #    if title:
-    #        sources_object = sources(sources, category, language, country, name, title, description, urlToImage, publishedAt)
-    #        sources_results.append(sources_object)
-       sources_object = Sources(id,name,description,url,category,country,language)
-	   sources_results.append(sources_object)
+       sources_object = Sources(id, sources, category, language, country, name, title, description, urlToImage, publishedAt)
+       sources_results.append(sources_object)
 
- 
    return sources_results
