@@ -16,4 +16,4 @@ def articles(source_title):
     '''
     View articles page function that returns the articles details page and its data
     '''
-    return render_template('articles.html',title = source_title)
+    return render_template('articles.html',title = source_title,)
