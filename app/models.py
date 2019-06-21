@@ -12,7 +12,7 @@ class Source:
         self.publishedAt = publishedAt
         self.content = content
         
-class Articles:
-    all_articles = []
+# class Articles:
+#     all_articles = []
 
-    def __init__(self,)
+#     def __init__(self,)
