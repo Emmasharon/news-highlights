@@ -1,16 +1,24 @@
 # news-highlights
 
-##Description
+## Description
 This is a Python application that provides news highlights for the user.
+## bdd
+| behaviour  |  input        |  output|
+|------------|:-------------:|------:|
+| Display news sources	  | On page load	 | List of various news sources is displayed per category |
+|Display articles from a news source|	Click a news source|	Redirected to a page with a list of articles from the source|
+|Display the preview of an article|	On page load|	Each article displays an image, title, description and publication date|
+|Read an entire article|	Click an article|	Redirected to the news source's site to read the entire article|
 
-##Setup and Installation 
+
+## Setup and Installation 
 *Clone the repository
 *Install all the requirements through pip: $ pip install -r requirements.txt
 *Make the file executable: $ chmod +x start.sh
 *Run the application: $ ./start.sh
 *Navigate in your browser 
 
-##Technologies used
+## Technologies used
 *Python 
 *Jquery 
 *Flask 
@@ -18,10 +26,10 @@ This is a Python application that provides news highlights for the user.
 *CSS3 
 *Bootstrap
 
-##Support and contact details
+## Support and contact details
 emmasharon19@gmail.com
 
-##Licence
+## Licence
 MIT LICENSE
 Copyright (c) 2018 Peter Polle
 
