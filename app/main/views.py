@@ -21,4 +21,8 @@ def Top_Headlines(sources):
    '''
    View headlines page function that returns the Top-headlines from source
    '''
+   sources = get_sources()
+   Top_headlines = get_top_headlines(source)
+   print(Top_headlines)
+  
    return render_template('Top_Headlines.html',sources = sources, Top_headlines = Top_headlines)
