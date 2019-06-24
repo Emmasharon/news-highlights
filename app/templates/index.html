@@ -1,37 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Top Stories</title>
+  {% endif %}
+{% extends 'base.html' %}
 
-{% extends 'base.html'%}
-{% import 'macros.html' as macro %}
-
-{% block content%}
-<div class="container">
-		<!-- Business News Section  -->
-        <h3> Business News </h3>
-        <hr>
-
-        {{ macro.displaySourceList(sources)}}
-
-        <!-- Business News Section  -->
-         
-        <h3> Technology News </h3>
-        <hr>
-
-        {{ macro.displaySourceList()}}
-
-        <!-- Entertainment News Section  -->
-         
-        <h3> Entertainment News Sources</h3>
-        <hr>
-
-        {{ macro.displaySourcesList(entertainment_sources)}}
-
-        <!-- Entertainment News Section  -->
-         
-        <h3> Sports News </h3>
-        <hr>
-
-        {{ macro.displaySourcesList(sports_sources)}}
-	
+{% block content %}
+    <div class="container">
+            <h1> Trending today</h1> 
+            <hr>
+            {% for faith in Everything %}
+            {% if faith.urlToImage%}
+            <div class="card d-flex justify-content-center flex-wrap" >
+                <h3 style="text-transform: uppercase; background-color: rgba(220, 20, 37, 0.932); padding:4%" class="card-title" >{{ faith .title }}</h3>
+                <hr>
+                <p class="">{{ faith.description }}</p>
+                <a href="{{ faith.url }}">See more...</a>
+                <p class="" class="text-muted">By {{ faith.author }}</p>
+                <p class="" class="text-muted">Date: {{ faith.publishedAt}}</p>
+                <img src="{{ faith.urlToImage }}" class="img-responsive" alt="News image">
+                <br>
+                <hr>
+            </div>
+            
+        </div>    
+      {% endif %}
+      
+      {% endfor %}
+      <div class="">
+            <div class="d-flex justify-content-center flex-wrap">  
+                    <h1> News</h1>
+                    {% for source in sources %}
+                    <p style="font-size: 20px; border: 1px solid red">
+                        <a href="{{source.url}}">{{source.name}}</a>
+                    </p>
+                    {% endfor %}    
+            </div>
+      </div>
+  </div> 
 </div>
 
 
-{%endblock%}
+
+{% endblock %}

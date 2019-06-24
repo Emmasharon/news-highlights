@@ -1,6 +1,6 @@
-from app import app
+
 import urllib.request,json
-from .models import Sources, Articles
+from .models import Sources, Everything, Top_Headlines
 from config import DevConfig
 
 
@@ -9,18 +9,21 @@ from config import DevConfig
 api_key = None
 # Getting the source base url
 base_url = None
+headlines_url = None
+everything_url= None
 
 def configure_request(app):
    global api_key,base_url,headlines_url,everything_url
    api_key = app.config['NEWS_HIGHLIGHT_API_KEY']
    base_url = app.config['NEWS_HIGHLIGHT_API_BASE_URL']
    headlines_url = app.config['TOP_HEADLINES_URL']
-   everything_url = app.comfig['EVERYTHING_URL']
-def get_sources(category):
+   everything_url = app.config['EVERYTHING_URL_KEY']
+   
+def get_sources():
    '''
    Function that gets the json response to our url request
    '''
-   get_sources_url = base_url.format(category,api_key)
+   get_sources_url = base_url.format(api_key)
 
    with urllib.request.urlopen(get_sources_url) as url:
        get_sources_data = url.read()
@@ -30,7 +33,7 @@ def get_sources(category):
 
        if get_sources_response['sources']:
            sources_results_list = get_sources_response['sources']
-           sources_results = process_sources(sources_results_list)
+           sources_results = process_sources_results(sources_results_list)
 
 
    return sources_results
@@ -47,8 +50,8 @@ def process_sources_results(sources_list):
    '''
    sources_results = []
    for sources_item in sources_list:
-       id = source_item.get('id')
-       url = source_item.get('url')
+       id = sources_item.get('id')
+       url = sources_item.get('url')
        category = sources_item.get('category')
        language = sources_item.get('language')
        country = sources_item.get('country')
@@ -69,8 +72,8 @@ def get_top_headlines(sources) :
 
     top_headlines_results = None 
 
-    if top_headlines_response['articles'] :
-      top_headlines_results_list = top_headlines_response['articles']
+    if top_headlines_response['top_headlines'] :
+      top_headlines_results_list = top_headlines_response['top_headlines']
       top_headlines_results = process_top_headlines_results(top_headlines_results_list)
 
   return(top_headlines_results)
