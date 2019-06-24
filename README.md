@@ -12,19 +12,19 @@ This is a Python application that provides news highlights for the user.
 
 
 ## Setup and Installation 
-*Clone the repository
-*Install all the requirements through pip: $ pip install -r requirements.txt
-*Make the file executable: $ chmod +x start.sh
-*Run the application: $ ./start.sh
-*Navigate in your browser 
+* Clone the repository
+* Install all the requirements through pip: $ pip install -r requirements.txt
+* Make the file executable: $ chmod +x start.sh
+* Run the application: $ ./start.sh
+* Navigate in your browser 
 
 ## Technologies used
-*Python 
-*Jquery 
-*Flask 
-*HTML5 
-*CSS3 
-*Bootstrap
+* Python 
+* Jquery 
+* Flask 
+* HTML5 
+* CSS3 
+* Bootstrap
 
 ## Support and contact details
 emmasharon19@gmail.com
